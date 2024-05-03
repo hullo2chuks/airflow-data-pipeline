@@ -1,0 +1,12 @@
+[2024-02-02T14:57:09.431+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: final_project.Stage_songs scheduled__2018-11-01T04:00:00+00:00 [queued]>
+[2024-02-02T14:57:09.535+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: final_project.Stage_songs scheduled__2018-11-01T04:00:00+00:00 [queued]>
+[2024-02-02T14:57:09.552+0000] {taskinstance.py:1331} INFO - Starting attempt 1 of 4
+[2024-02-02T14:57:09.840+0000] {taskinstance.py:1350} INFO - Executing <Task(StageToRedshiftOperator): Stage_songs> on 2018-11-01 04:00:00+00:00
+[2024-02-02T14:57:09.898+0000] {standard_task_runner.py:57} INFO - Started process 699 to run task
+[2024-02-02T14:57:09.924+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'final_project', 'Stage_songs', 'scheduled__2018-11-01T04:00:00+00:00', '--job-id', '15', '--raw', '--subdir', 'DAGS_FOLDER/final_project.py', '--cfg-path', '/tmp/tmp5dknql7j']
+[2024-02-02T14:57:09.962+0000] {standard_task_runner.py:85} INFO - Job 15: Subtask Stage_songs
+[2024-02-02T14:57:10.400+0000] {task_command.py:410} INFO - Running <TaskInstance: final_project.Stage_songs scheduled__2018-11-01T04:00:00+00:00 [running]> on host daef2c2ad421
+[2024-02-02T14:57:10.738+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Philip' AIRFLOW_CTX_DAG_ID='final_project' AIRFLOW_CTX_TASK_ID='Stage_songs' AIRFLOW_CTX_EXECUTION_DATE='2018-11-01T04:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2018-11-01T04:00:00+00:00'
+[2024-02-02T14:57:10.819+0000] {taskinstance.py:1373} INFO - Marking task as SUCCESS. dag_id=final_project, task_id=Stage_songs, execution_date=20181101T040000, start_date=20240202T145709, end_date=20240202T145710
+[2024-02-02T14:57:11.012+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 0
+[2024-02-02T14:57:11.381+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check

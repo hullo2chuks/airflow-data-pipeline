@@ -1,0 +1,28 @@
+[2024-02-02T15:05:47.653+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: final_project.Load_songplays_fact_table scheduled__2018-11-01T13:00:00+00:00 [queued]>
+[2024-02-02T15:05:47.691+0000] {taskinstance.py:1125} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: final_project.Load_songplays_fact_table scheduled__2018-11-01T13:00:00+00:00 [queued]>
+[2024-02-02T15:05:47.701+0000] {taskinstance.py:1331} INFO - Starting attempt 2 of 4
+[2024-02-02T15:05:47.744+0000] {taskinstance.py:1350} INFO - Executing <Task(LoadFactOperator): Load_songplays_fact_table> on 2018-11-01 13:00:00+00:00
+[2024-02-02T15:05:47.857+0000] {standard_task_runner.py:57} INFO - Started process 907 to run task
+[2024-02-02T15:05:48.590+0000] {standard_task_runner.py:84} INFO - Running: ['***', 'tasks', 'run', 'final_project', 'Load_songplays_fact_table', 'scheduled__2018-11-01T13:00:00+00:00', '--job-id', '63', '--raw', '--subdir', 'DAGS_FOLDER/final_project.py', '--cfg-path', '/tmp/tmpy6ky2ye6']
+[2024-02-02T15:05:48.788+0000] {standard_task_runner.py:85} INFO - Job 63: Subtask Load_songplays_fact_table
+[2024-02-02T15:05:49.461+0000] {task_command.py:410} INFO - Running <TaskInstance: final_project.Load_songplays_fact_table scheduled__2018-11-01T13:00:00+00:00 [running]> on host daef2c2ad421
+[2024-02-02T15:05:49.718+0000] {taskinstance.py:1570} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Philip' AIRFLOW_CTX_DAG_ID='final_project' AIRFLOW_CTX_TASK_ID='Load_songplays_fact_table' AIRFLOW_CTX_EXECUTION_DATE='2018-11-01T13:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2018-11-01T13:00:00+00:00'
+[2024-02-02T15:05:49.731+0000] {load_fact.py:22} INFO - Clearing data from destination Redshift table
+[2024-02-02T15:05:49.790+0000] {base.py:73} INFO - Using connection ID 'redshift' for task execution.
+[2024-02-02T15:05:49.805+0000] {taskinstance.py:1847} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/opt/airflow/plugins/operators/load_fact.py", line 23, in execute
+    redshift_hook.run("TRUNCATE {}".format(self.table))
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/common/sql/hooks/sql.py", line 342, in run
+    with closing(self.get_conn()) as conn:
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/postgres/hooks/postgres.py", line 144, in get_conn
+    self.conn = psycopg2.connect(**conn_args)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "default-workgroup.434192172683.us-east-1.redshift-serverless.amazonaws.com" to address: Name or service not known
+
+[2024-02-02T15:05:49.877+0000] {taskinstance.py:1373} INFO - Marking task as UP_FOR_RETRY. dag_id=final_project, task_id=Load_songplays_fact_table, execution_date=20181101T130000, start_date=20240202T150547, end_date=20240202T150549
+[2024-02-02T15:05:49.908+0000] {standard_task_runner.py:109} ERROR - Failed to execute job 63 for task Load_songplays_fact_table (could not translate host name "default-workgroup.434192172683.us-east-1.redshift-serverless.amazonaws.com" to address: Name or service not known
+; 907)
+[2024-02-02T15:05:49.946+0000] {local_task_job_runner.py:232} INFO - Task exited with return code 1
+[2024-02-02T15:05:50.060+0000] {taskinstance.py:2674} INFO - 0 downstream tasks scheduled from follow-on schedule check
